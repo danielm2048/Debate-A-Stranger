@@ -12,8 +12,6 @@ app.use(cors());
 const server = http.createServer(app);
 const io = socketio(server);
 
-app.use(express.static(path.join(__dirname, "public")));
-
 io.on("connect", (socket) => {
 	socket.on("startDebate", ({ userName, topic, stance }) => {
 		const user = matchUser(socket.id, userName, topic, stance);
@@ -59,6 +57,16 @@ io.on("connect", (socket) => {
 		}
 	});
 });
+
+if (process.env.NODE_ENV === "production") {
+	app.use((req, res, next) => {
+		if (req.header("x-forwarded-proto") !== "https")
+			res.redirect(`https://${req.header("host")}${req.url}`);
+		else next();
+	});
+
+	app.use(express.static(path.join(__dirname, "public")));
+}
 
 const PORT = process.env.PORT || 4000;
 
