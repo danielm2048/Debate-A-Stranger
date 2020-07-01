@@ -1,14 +1,14 @@
 import React from "react";
 import { useStoreActions, useStoreState } from "easy-peasy";
 
-import { Button } from "../Styles/styledLayout";
+import Button from "./Layout/Button";
 
 import Suggestion from "./Suggestion";
 import TopicList from "./TopicList";
 
 let rand;
 
-const Choices = ({ userName }) => {
+const Topics = ({ userName }) => {
 	const topics = useStoreState((state) => state.topics);
 	const setTopic = useStoreActions((actions) => actions.user.setTopic);
 
@@ -30,4 +30,4 @@ const Choices = ({ userName }) => {
 	);
 };
 
-export default Choices;
+export default Topics;

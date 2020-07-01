@@ -1,32 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button } from "../Styles/styledLayout";
-import {
-	Modal,
-	ModalContent,
-	ModalActions,
-	ModalInput,
-	ModalButton,
-	ModalImgContainer,
-	Close,
-	ModalError,
-} from "../Styles/styledModal";
+
+import Button from "./Layout/Button";
+import Input from "./Layout/Input";
+import Modal from "./Modal/Modal";
+import ModalContent from "./Modal/ModalContent";
+import ModalActions from "./Modal/ModalActions";
+import Close from "./Modal/Close";
 
 const Suggestion = () => {
 	const [modal, setModal] = useState(false);
 	const [suggestion, setSuggestion] = useState("");
-	const [error, setError] = useState(null);
 
 	const toggle = () => {
 		setModal(false);
 		setSuggestion("");
-		setError(null);
 	};
 
 	const handleClickOutside = (event) => {
 		if (ref.current && !ref.current.contains(event.target)) {
 			setModal(false);
 			setSuggestion("");
-			setError(null);
 		}
 	};
 
@@ -55,24 +48,15 @@ const Suggestion = () => {
 						alert("Thank you for your suggestion!");
 					}}
 				>
-					<ModalImgContainer>
-						<Close onClick={toggle} title="Close">
-							&times;
-						</Close>
-						{/* <ModalImg src="/logo.png" alt="logo" /> */}
-					</ModalImgContainer>
+					<Close onClick={toggle} title="Close">
+						&times;
+					</Close>
 					<ModalActions>
-						{error ? (
-							<ModalError>
-								<strong>{error}</strong>
-							</ModalError>
-						) : null}
-
 						<label htmlFor="suggest">
 							<strong>Suggestion:</strong>
 						</label>
-
-						<ModalInput
+						<br />
+						<Input
 							type="text"
 							value={suggestion}
 							placeholder="Enter your suggestion..."
@@ -80,10 +64,13 @@ const Suggestion = () => {
 							onChange={(e) => {
 								setSuggestion(e.target.value);
 							}}
+							width="90%"
 							required
 						/>
 
-						<ModalButton type="submit">Send</ModalButton>
+						<Button type="submit" color="tomato" width="95%">
+							Send
+						</Button>
 					</ModalActions>
 				</ModalContent>
 			</Modal>

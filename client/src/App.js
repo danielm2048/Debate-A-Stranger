@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
 import { CodeAlt, Heart } from "@styled-icons/boxicons-regular";
-import { Box } from "./Styles/styledLayout";
+
+import Box from "./Components/Layout/Box";
 
 import { useStoreState } from "easy-peasy";
 

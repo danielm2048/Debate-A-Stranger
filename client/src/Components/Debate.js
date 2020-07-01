@@ -1,8 +1,8 @@
 import React from "react";
 import { useStoreState } from "easy-peasy";
 
-import Choice from "./Choice";
-import DebateForm from "./DebateForm";
+import Choice from "./Choice/Choice";
+import DebateForm from "./DebateForm/DebateForm";
 
 const Debate = () => {
 	const { userName, topic, yayOrNay } = useStoreState((state) => state.user);

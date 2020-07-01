@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useStoreActions } from "easy-peasy";
-import { Button } from "../Styles/styledLayout";
+
+import Button from "./Layout/Button";
+import Input from "./Layout/Input";
 
 const Welcome = () => {
 	const [userNameField, setUserNameField] = useState("");
@@ -20,21 +22,14 @@ const Welcome = () => {
 					<b>Enter your Username:</b>
 				</label>
 
-				<input
+				<Input
 					type="text"
 					value={userNameField}
 					onChange={(e) => setUserNameField(e.target.value)}
 					placeholder="Choose your username..."
 					name="name"
-					className="welcome-input"
+					width="80%"
 					required
-					style={{
-						width: "80%",
-						padding: "12px 20px",
-						margin: "8px 0",
-						display: "inline-block",
-						border: "1px solid #ccc",
-					}}
 				/>
 
 				<Button type="submit" width="100%">

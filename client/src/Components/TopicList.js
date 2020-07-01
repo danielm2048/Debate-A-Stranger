@@ -1,15 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button, Select } from "../Styles/styledLayout";
-import {
-	Modal,
-	ModalContent,
-	ModalActions,
-	ModalButton,
-	ModalImgContainer,
-	Close,
-	ModalError,
-} from "../Styles/styledModal";
 import { useStoreActions, useStoreState } from "easy-peasy";
+
+import Button from "./Layout/Button";
+import Select from "./Layout/Select";
+import Modal from "./Modal/Modal";
+import ModalContent from "./Modal/ModalContent";
+import ModalActions from "./Modal/ModalActions";
+import Close from "./Modal/Close";
 
 const TopicList = () => {
 	const topics = useStoreState((state) => state.topics);
@@ -17,12 +14,10 @@ const TopicList = () => {
 
 	const [modal, setModal] = useState(false);
 	const [listChoice, setListChoice] = useState(topics[0]);
-	const [error, setError] = useState(null);
 
 	const toggle = () => {
 		setModal(false);
 		setListChoice(topics[0]);
-		setError(null);
 	};
 
 	const ref = useRef(null);
@@ -31,7 +26,6 @@ const TopicList = () => {
 			if (ref.current && !ref.current.contains(event.target)) {
 				setModal(false);
 				setListChoice(topics[0]);
-				setError(null);
 			}
 		};
 
@@ -56,28 +50,17 @@ const TopicList = () => {
 						setTopic(listChoice);
 					}}
 				>
-					<ModalImgContainer>
-						<Close onClick={toggle} title="Close">
-							&times;
-						</Close>
-						{/* <ModalImg src="/logo.png" alt="logo" /> */}
-					</ModalImgContainer>
+					<Close onClick={toggle} title="Close">
+						&times;
+					</Close>
 					<ModalActions>
-						{error ? (
-							<ModalError>
-								<strong>{error}</strong>
-							</ModalError>
-						) : null}
-
-						<label htmlFor="suggest">
+						<label htmlFor="topics">
 							<strong>Topic List:</strong>
 						</label>
-
+						<br />
 						<Select
-							style={{ fontSize: 20 }}
 							value={listChoice}
-							placeholder="Enter your suggestion..."
-							name="suggest"
+							name="topics"
 							onChange={(e) => {
 								setListChoice(e.target.value);
 							}}
@@ -90,7 +73,9 @@ const TopicList = () => {
 							))}
 						</Select>
 
-						<ModalButton type="submit">Choose Topic</ModalButton>
+						<Button type="submit" color="tomato" width="95%">
+							Choose Topic
+						</Button>
 					</ModalActions>
 				</ModalContent>
 			</Modal>
