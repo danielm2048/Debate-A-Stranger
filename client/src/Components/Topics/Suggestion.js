@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import Button from "./Layout/Button";
-import Input from "./Layout/Input";
-import Modal from "./Modal/Modal";
-import ModalContent from "./Modal/ModalContent";
-import ModalActions from "./Modal/ModalActions";
-import Close from "./Modal/Close";
+import Button from "../Layout/Button";
+import Input from "../Layout/Input";
+import Modal from "../Modal/Modal";
+import ModalContent from "../Modal/ModalContent";
+import ModalActions from "../Modal/ModalActions";
+import Close from "../Modal/Close";
 
 const Suggestion = () => {
 	const [modal, setModal] = useState(false);

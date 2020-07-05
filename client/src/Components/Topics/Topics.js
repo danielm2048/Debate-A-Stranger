@@ -1,7 +1,7 @@
 import React from "react";
 import { useStoreActions, useStoreState } from "easy-peasy";
 
-import Button from "./Layout/Button";
+import Button from "../Layout/Button";
 
 import Suggestion from "./Suggestion";
 import TopicList from "./TopicList";

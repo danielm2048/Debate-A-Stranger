@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import io from "socket.io-client";
 
-import InputForm from "../InputForm";
+import InputForm from "./InputForm";
 import Chatbox from "./Chatbox";
 import Comment from "../Comment/Comment";
 

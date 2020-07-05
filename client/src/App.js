@@ -7,7 +7,7 @@ import Box from "./Components/Layout/Box";
 import { useStoreState } from "easy-peasy";
 
 import Welcome from "./Components/Welcome";
-import Topics from "./Components/Topics";
+import Topics from "./Components/Topics/Topics";
 import Debate from "./Components/Debate";
 
 function App() {

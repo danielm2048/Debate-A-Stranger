@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useStoreActions, useStoreState } from "easy-peasy";
 
-import Button from "./Layout/Button";
-import Select from "./Layout/Select";
-import Modal from "./Modal/Modal";
-import ModalContent from "./Modal/ModalContent";
-import ModalActions from "./Modal/ModalActions";
-import Close from "./Modal/Close";
+import Button from "../Layout/Button";
+import Select from "../Layout/Select";
+import Modal from "../Modal/Modal";
+import ModalContent from "../Modal/ModalContent";
+import ModalActions from "../Modal/ModalActions";
+import Close from "../Modal/Close";
 
 const TopicList = () => {
 	const topics = useStoreState((state) => state.topics);
